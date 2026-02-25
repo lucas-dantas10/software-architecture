@@ -67,6 +67,6 @@ Whenever possible, study sources will be referenced inside each file, such as:
 
 ## ✍️ Author
 
-Lucas Dantas
-Software Developer
-Continuously evolving toward Software Architecture
+- Lucas Dantas
+- Software Developer
+- Continuously evolving toward Software Architecture
