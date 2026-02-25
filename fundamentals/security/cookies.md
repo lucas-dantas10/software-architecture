@@ -24,31 +24,39 @@ In HTTP, a cookie works the same way: the website stores a small piece of inform
 in your browser to recognize you later, keeping your session or preferences, 
 and preventing others from using it.
 
-## Para que os cookies são usados
+## What cookies are used for
 
-Normalmente, o servidor usa o conteúdo dos cookies HTTP para determinar se diferentes requisições vêm do mesmo navegador/usuário e então emite uma resposta personalizada ou genérica, conforme apropriado. A seguir descreve um sistema básico de login do usuário:
+Normally, the server uses the contents of HTTP cookies to determine whether 
+different requests come from the same browser/user and then sends a 
+personalized or generic response, as appropriate. Below is a basic user login system:
 
-- O usuário envia credenciais de login para o servidor, por exemplo, por meio de um envio de formulário.
-- Se as credenciais estiverem corretas, o servidor atualiza a interface para indicar que o usuário está logado, e responde com um cookie contendo um ID de sessão que registra o status de login no navegador.
-- Em um momento posterior, o usuário se move para uma página diferente no mesmo site. O navegador envia o cookie contendo o ID da sessão junto com a solicitação correspondente para indicar que acredita que o usuário ainda está logado.
-- O servidor verifica o ID da sessão e, se ainda estiver válido, envia ao usuário uma versão personalizada da nova página. Se não for válido, o ID da sessão é excluído e o usuário recebe uma versão genérica da página (ou talvez uma mensagem de "acesso negado" e solicitado a fazer login novamente).
+- The user sends login credentials to the server, for example, through a form submission.
 
-## Principais usos dos cookies
+- If the credentials are correct, the server updates the interface to indicate that the user is logged in and responds with a cookie containing a session ID that records the login status in the browser.
 
-- Gerenciamento de sessões: Status de login do usuário, conteúdo do carrinho de compras, pontuações dos jogos ou quaisquer outros detalhes relacionados à sessão do usuário que o servidor precise lembrar.
-- Personalização: Preferências do usuário, como linguagem de exibição e tema da interface.
-- Rastreamento: Registro e análise do comportamento do usuário.
+- At a later time, the user navigates to a different page on the same website. The browser sends the cookie containing the session ID along with the corresponding request to indicate that it believes the user is still logged in.
 
-## Armazenamento de dados
+- The server checks the session ID and, if it is still valid, sends the user a personalized version of the new page. If it is not valid, the session ID is removed and the user receives a generic version of the page (or possibly an “access denied” message and is asked to log in again).
 
-Nos primeiros dias da web, os cookies eram usados frequentemente(não havia outras opções) 
-para armazenamento de dados do lado do cliente. Hoje em dia são recomendadas as API's modernas
-de armazenamento, como por exemplo, a Web Storage API. o IndexedDB, LocalStorage e SessionStorage.
-Eles são projetados justamente para o armazenamento do lado do cliente sem precisar enviar dados
-para o servidor e não trazem as desvantagens que possui no cookie, que são:
+## Main uses of cookies
 
-- Os navegadores geralmente são limitados a um número máximo de cookies por domínio (varia conforme o navegador, geralmente em centenas), e um tamanho máximo por cookie (geralmente 4KB). APIs de armazenamento podem armazenar volumes maiores de dados.
-- Cookies são enviados a cada solicitação, então podem piorar o desempenho (por exemplo, em conexões móveis lentas), especialmente se você tiver muitos cookies configurados.
+- Session management: User login status, shopping cart contents, game scores, or any other session-related details that the server needs to remember.
+
+- Personalization: User preferences, such as display language and interface theme.
+
+- Tracking: Recording and analyzing user behavior.
+
+## Data storage
+
+In the early days of the web, cookies were often used (there were no other options) 
+for client-side data storage. Nowadays, modern storage APIs are recommended, 
+such as the Web Storage API. IndexedDB, LocalStorage, and SessionStorage are 
+designed specifically for client-side storage without needing to send data to the 
+server and do not have the drawbacks of cookies, such as:
+
+- Browsers are usually limited to a maximum number of cookies per domain (which varies by browser, generally in the hundreds) and a maximum size per cookie (usually 4 KB). Storage APIs can store much larger volumes of data.
+
+- Cookies are sent with every request, which can negatively impact performance (for example, on slow mobile connections), especially if you have many cookies set.
 
 ## Creating, removing, and updating cookies
 
